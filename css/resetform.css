@@ -1,0 +1,110 @@
+@charset 'UTF-8';
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: 1px solid;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+input::-ms-clear {
+  visibility: hidden;
+}
+input[type="checkbox"]::-ms-check,
+input[type="radio"]::-ms-check {
+  display: none;
+}
+select::-ms-expand {
+  display: none;
+}
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+input:disabled,
+textarea:disabled,
+select:disabled,
+button:disabled {
+  opacity: 0.3;
+}
+input[type="checkbox"] {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0.8em;
+  height: 1.2em;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  box-sizing: border-box;
+  transform: rotate(45deg);
+  transform-origin: center right;
+  visibility: hidden;
+}
+input[type="checkbox"]:checked::before {
+  visibility: visible;
+}
+input[type="checkbox"] + label {
+  vertical-align: middle;
+}
+input[type="radio"] {
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+input[type="radio"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: currentColor;
+  visibility: hidden;
+}
+input[type="radio"]:checked::before {
+  visibility: visible;
+}
+input[type="radio"] + label {
+  vertical-align: middle;
+}
+textarea {
+  vertical-align: top;
+  overflow: auto;
+  resize: vertical;
+}
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+select:not(:disabled),
+button:not(:disabled),
+label[for] {
+  cursor: pointer;
+}

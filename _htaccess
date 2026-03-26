@@ -1,0 +1,21 @@
+# HSTSプリロードリストに登録（登録時にアンコメント）
+# https://hstspreload.org/
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+RewriteEngine on
+
+# HTTP でのアクセスを HTTPS にリダイレクト
+RewriteCond %{HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ホスティング提供サブドメインなしに正規化
+# RewriteCond %{HTTP_HOST} ^(SERVER_ID\.xsrv\.jp)$ [NC]
+# RewriteRule (.*) https://service.sokkin-academy.me%{REQUEST_URI} [R=301,L]
+
+# www なしに正規化
+RewriteCond %{HTTP_HOST} ^(www\.service\.sokkin-academy\.me)$ [NC]
+RewriteRule (.*) https://service.sokkin-academy.me%{REQUEST_URI} [R=301,L]
+
+# index.html なしに正規化
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ https://service.sokkin-academy.me/$1 [R=301,L]
