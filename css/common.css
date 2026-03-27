@@ -248,6 +248,7 @@ br.pc {
     min-width: 24rem;
     position: relative;
     font-size: 1.45rem;
+    justify-content: space-between;
   }
 }
 #globalnav .contact + .contact a {
