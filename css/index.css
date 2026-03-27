@@ -253,10 +253,10 @@
   }
 }
 #fv .button a {
-  padding: 0.2em 2rem 0.2em 0rem;
+  padding: 0.2em 6rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 4.7rem;
   box-sizing: border-box;
   position: relative;
@@ -264,7 +264,6 @@
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.03em;
-  text-indent: 1em;
   color: rgb(255, 255, 255);
   background-image: linear-gradient(
     300deg,
@@ -286,7 +285,7 @@
 }
 @media screen and (min-width: 768px) {
   #fv .button a {
-    padding: 0.2em 2.6rem;
+    padding: 0.2em 9rem;
     margin: 0 4.4rem;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -294,7 +293,6 @@
     min-width: 44.2rem;
     min-height: 6.2rem;
     font-size: 2.24rem;
-    text-indent: 0;
   }
 }
 #fv .button a:hover {
@@ -318,10 +316,17 @@
     height: 3.3rem;
     right: 6.8rem;
   }
+  #fv .button a::after {
+    right: 2.6rem;
+  }
 }
 #fv .button a::after {
   content: "";
-  display: inline-block;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
   width: 0;
   height: 0;
   border-left: calc(9 / 14.5 * 1em) solid currentColor;
@@ -443,7 +448,7 @@ article[id] > .title em,
     font-size: 15rem;
   }
   article[id] > .title em {
-    margin-left: calc((1200 / 225 * 50%) - 50vw + 2.4rem);
+    margin-left: 2.4rem;
     position: -webkit-sticky;
     position: sticky;
     top: 12rem;
@@ -1985,8 +1990,8 @@ article[id] > .container > .desc em {
 }
 @media screen and (min-width: 768px) {
   #voice .photo .image {
-    width: 15rem;
-    height: 15rem;
+    width: 17rem;
+    height: 17rem;
   }
 }
 #voice .photo .image img {
@@ -2238,6 +2243,7 @@ article[id] > .container > .desc em {
   padding: 0.25em 1em;
   border-radius: 2em;
   white-space: nowrap;
+  font-family: var(--MarlideDisplay);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -2341,7 +2347,8 @@ article[id] > .container > .desc em {
   gap: 0.2em;
 }
 #price .plan-price em {
-  font-size: 5.6rem;
+  font-family: var(--MarlideDisplay);
+  font-size: 12vw;
   font-weight: 700;
   font-style: normal;
   color: rgb(57, 57, 57);
@@ -2357,16 +2364,19 @@ article[id] > .container > .desc em {
   }
 }
 #price .plan-price span {
+  font-family: var(--MarlideDisplay);
   font-size: 1.8rem;
   font-weight: 600;
   color: rgb(57, 57, 57);
 }
 #price .plan-price small {
+  font-family: var(--MarlideDisplay);
   font-size: 1.2rem;
   font-weight: 500;
   color: rgb(100, 100, 100);
 }
 #price .plan-note {
+  font-family: var(--MarlideDisplay);
   font-size: 1.3rem;
   font-weight: 500;
   color: rgb(100, 100, 100);
@@ -2418,21 +2428,21 @@ article[id] > .container > .desc em {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 50%;
   background-color: rgb(255, 19, 70);
   color: rgb(255, 255, 255);
   font-family: var(--MarlideDisplay);
-  font-size: 1.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 1;
 }
 @media screen and (min-width: 768px) {
   #faq dt button::before {
-    width: 3.2rem;
-    height: 3.2rem;
-    font-size: 1.7rem;
+    width: 6rem;
+    height: 6rem;
+    font-size: 4rem;
   }
 }
 #faq dt button::after {
@@ -2483,22 +2493,22 @@ article[id] > .container > .desc em {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 50%;
   background-color: rgb(255, 230, 230);
   color: rgb(255, 19, 70);
   font-family: var(--MarlideDisplay);
-  font-size: 1.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 1;
   margin-top: 0.1em;
 }
 @media screen and (min-width: 768px) {
   #faq dd p::before {
-    width: 3.2rem;
-    height: 3.2rem;
-    font-size: 1.7rem;
+    width: 6rem;
+    height: 6rem;
+    font-size: 4rem;
   }
 }
 

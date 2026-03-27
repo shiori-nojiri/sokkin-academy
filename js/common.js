@@ -181,8 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const lessons = carousel.querySelectorAll(".lesson");
     const dots = carousel.querySelectorAll(".dot");
     const dotCount = dots.length;
-    let current = 0;
+    let extIndex = 0;
     let autoTimer = null;
+
+    /* clone all lessons for seamless infinite loop */
+    Array.from(lessons).forEach((l) => track.appendChild(l.cloneNode(true)));
 
     const getColAdvance = () => {
       if (lessons.length < 5) return 0;
@@ -192,30 +195,88 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const goTo = (index) => {
-      current = ((index % dotCount) + dotCount) % dotCount;
-      const advance = getColAdvance() * current;
-      track.style.transform = `translateX(-${advance}px)`;
-      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
+      extIndex = index;
+      const dotIndex = ((index % dotCount) + dotCount) % dotCount;
+      track.style.transform = `translateX(-${getColAdvance() * index}px)`;
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === dotIndex));
     };
+
+    /* after sliding to cloned section, snap silently back to original */
+    track.addEventListener("transitionend", (e) => {
+      if (e.propertyName !== "transform") return;
+      if (extIndex >= dotCount) {
+        track.style.transition = "none";
+        extIndex -= dotCount;
+        track.style.transform = `translateX(-${getColAdvance() * extIndex}px)`;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          track.style.transition = "";
+        }));
+      }
+    });
 
     const stopAuto = () => clearInterval(autoTimer);
     const startAuto = () => {
       stopAuto();
-      autoTimer = setInterval(() => goTo(current + 1), 4000);
+      autoTimer = setInterval(() => goTo(extIndex + 1), 4000);
     };
 
     dots.forEach((dot, i) => {
       dot.addEventListener("click", () => {
+        extIndex = i;
         goTo(i);
         startAuto();
       });
     });
 
+    /* drag / swipe */
+    let dragStartX = 0;
+    let isDragging = false;
+
+    const onDragStart = (x) => {
+      isDragging = true;
+      dragStartX = x;
+      stopAuto();
+      track.style.transition = "none";
+    };
+
+    const onDragEnd = (x) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = "";
+      const diff = dragStartX - x;
+      const threshold = getColAdvance() * 0.2;
+      if (diff > threshold) {
+        goTo(extIndex + 1);
+      } else if (diff < -threshold) {
+        goTo(extIndex - 1 < 0 ? dotCount - 1 : extIndex - 1);
+      } else {
+        goTo(extIndex);
+      }
+      startAuto();
+    };
+
+    const onDragMove = (x) => {
+      if (!isDragging) return;
+      const diff = dragStartX - x;
+      const base = getColAdvance() * extIndex;
+      track.style.transform = `translateX(-${base + diff}px)`;
+    };
+
+    /* mouse */
+    carousel.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener("mouseup", (e) => onDragEnd(e.clientX));
+    window.addEventListener("mousemove", (e) => onDragMove(e.clientX));
+
+    /* touch */
+    carousel.addEventListener("touchstart", (e) => onDragStart(e.touches[0].clientX), { passive: true });
+    carousel.addEventListener("touchend", (e) => onDragEnd(e.changedTouches[0].clientX), { passive: true });
+    carousel.addEventListener("touchmove", (e) => onDragMove(e.touches[0].clientX), { passive: true });
+
     goTo(0);
     startAuto();
 
     carousel.addEventListener("mouseenter", stopAuto);
-    carousel.addEventListener("mouseleave", startAuto);
+    carousel.addEventListener("mouseleave", () => { if (!isDragging) startAuto(); });
   }
 
   // end

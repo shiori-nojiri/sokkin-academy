@@ -52,7 +52,7 @@ body {
 }
 #wrapper {
   margin: 0 auto;
-  max-width: 120rem;
+  max-width: 100%;
 }
 h1,
 h2,
@@ -244,7 +244,7 @@ br.pc {
 }
 @media screen and (min-width: 768px) {
   #globalnav .contact a {
-    padding: 0.2em 1.7rem;
+    padding: 0.2em 1.7rem 0.2em 3.7rem;
     min-width: 24rem;
     position: relative;
     font-size: 1.45rem;
@@ -304,7 +304,6 @@ br.pc {
 /*  footer  */
 #wrapper > footer {
   padding: 1.7rem calc(50vw - 50%);
-  margin: 0 calc(50% - 50vw);
   background-color: rgb(221, 221, 221);
 }
 @media screen and (min-width: 768px) {
