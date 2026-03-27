@@ -2428,7 +2428,8 @@ article[id] > .container > .desc em {
   justify-content: center;
   flex-shrink: 0;
   width: 4.2rem;
-  height: 4.2rem;
+  height: 3.7rem;
+  padding-bottom: 0.5rem;
   border-radius: 50%;
   background-color: rgb(255, 19, 70);
   color: rgb(255, 255, 255);
@@ -2442,6 +2443,7 @@ article[id] > .container > .desc em {
     width: 6rem;
     height: 6rem;
     font-size: 4rem;
+    padding-bottom: 0;
   }
 }
 #faq dt button::after {
@@ -2453,7 +2455,7 @@ article[id] > .container > .desc em {
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 1;
-  color: rgb(100, 100, 100);
+  color: #ff1346;
   transition: content 0.2s;
 }
 #faq dt button[aria-expanded="true"]::after {
@@ -2475,7 +2477,7 @@ article[id] > .container > .desc em {
   align-items: flex-start;
   gap: 1em;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: rgb(57, 57, 57);
@@ -2493,7 +2495,8 @@ article[id] > .container > .desc em {
   justify-content: center;
   flex-shrink: 0;
   width: 4.2rem;
-  height: 4.2rem;
+  height: 3.7rem;
+  padding-bottom: 0.5rem;
   border-radius: 50%;
   background-color: rgb(255, 230, 230);
   color: rgb(255, 19, 70);
@@ -2508,6 +2511,7 @@ article[id] > .container > .desc em {
     width: 6rem;
     height: 6rem;
     font-size: 4rem;
+    padding-bottom: 0;
   }
 }
 
@@ -2527,8 +2531,8 @@ article[id] > .container > .desc em {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  -webkit-animation: 20s infini-scroll linear infinite;
-  animation: 20s infini-scroll linear infinite;
+  -webkit-animation: 40s infini-scroll linear infinite;
+  animation: 40s infini-scroll linear infinite;
 }
 #contact .banner em {
   padding: 0 0.25em;
@@ -2577,7 +2581,7 @@ article[id] > .container > .desc em {
 }
 #contact h2 span {
   display: block;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -2668,6 +2672,7 @@ article[id] > .container > .desc em {
 @media screen and (max-width: 767px) {
   #contact .button a {
     width: 80vw;
+    padding-right: 4rem;
   }
   #contact .button a::before {
     right: 7rem;
@@ -2681,21 +2686,12 @@ article[id] > .container > .desc em {
 }
 #contact .button a::after {
   content: "";
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: block;
+  display: inline-block;
   width: 0;
   height: 0;
   border-left: calc(9 / 14.5 * 1em) solid currentColor;
   border-top: calc(6 / 14.5 * 1em) solid transparent;
   border-bottom: calc(6 / 14.5 * 1em) solid transparent;
-}
-@media screen and (min-width: 768px) {
-  #contact .button a::after {
-    right: 2.6rem;
-  }
 }
 #contact .button a:hover::after {
   -webkit-animation: arrow 0.4s ease;
