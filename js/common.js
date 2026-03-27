@@ -277,6 +277,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carousel.addEventListener("mouseenter", stopAuto);
     carousel.addEventListener("mouseleave", () => { if (!isDragging) startAuto(); });
+
+    /* reset to Lesson 1 each time the section enters the viewport */
+    const curriculumSection = document.querySelector("#curriculum");
+    if (curriculumSection) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            track.style.transition = "none";
+            goTo(0);
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              track.style.transition = "";
+            }));
+            startAuto();
+          } else {
+            stopAuto();
+          }
+        });
+      }, { threshold: 0.1 }).observe(curriculumSection);
+    }
   }
 
   // end
