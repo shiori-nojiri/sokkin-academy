@@ -253,7 +253,7 @@
   }
 }
 #fv .button a {
-  padding: 0.2em 6rem;
+  padding: 0.2em 7rem 0.2em 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,7 +285,7 @@
 }
 @media screen and (min-width: 768px) {
   #fv .button a {
-    padding: 0.2em 9rem;
+    padding: 0.2em 9.4rem 0.2em 2.6rem;
     margin: 0 4.4rem;
     width: -webkit-fit-content;
     width: -moz-fit-content;
