@@ -2611,10 +2611,10 @@ article[id] > .container > .desc em {
   justify-content: center;
 }
 #contact .button a {
-  padding: 0.2em 2rem 0.2em 0;
+  padding: 0.2em 9rem 0.2em 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 4.7rem;
   box-sizing: border-box;
   position: relative;
@@ -2622,7 +2622,6 @@ article[id] > .container > .desc em {
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.03em;
-  text-indent: 1em;
   color: rgb(255, 255, 255);
   background-image: linear-gradient(
     300deg,
@@ -2644,11 +2643,10 @@ article[id] > .container > .desc em {
 }
 @media screen and (min-width: 768px) {
   #contact .button a {
-    padding: 0.2em 2.6rem;
+    padding: 0.2em 9.4rem 0.2em 2.6rem;
     min-width: 50rem;
     min-height: 7rem;
     font-size: 2.4rem;
-    text-indent: 0;
   }
 }
 #contact .button a:hover {
@@ -2670,7 +2668,6 @@ article[id] > .container > .desc em {
 @media screen and (max-width: 767px) {
   #contact .button a {
     width: 80vw;
-    padding-right: 4rem;
   }
   #contact .button a::before {
     right: 7rem;
@@ -2684,12 +2681,21 @@ article[id] > .container > .desc em {
 }
 #contact .button a::after {
   content: "";
-  display: inline-block;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
   width: 0;
   height: 0;
   border-left: calc(9 / 14.5 * 1em) solid currentColor;
   border-top: calc(6 / 14.5 * 1em) solid transparent;
   border-bottom: calc(6 / 14.5 * 1em) solid transparent;
+}
+@media screen and (min-width: 768px) {
+  #contact .button a::after {
+    right: 2.6rem;
+  }
 }
 #contact .button a:hover::after {
   -webkit-animation: arrow 0.4s ease;
