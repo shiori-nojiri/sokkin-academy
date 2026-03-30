@@ -1530,6 +1530,7 @@ article[id] > .container > .desc em {
   #point h2 {
     padding-bottom: 5.4rem;
     font-size: 4.8rem;
+    letter-spacing: calc(1.63 / 35 * 1em);
   }
 }
 #point h2 .logo {
@@ -2156,7 +2157,6 @@ article[id] > .container > .desc em {
   position: relative;
   padding: 2rem 0 0;
   overflow: hidden;
-  container-type: inline-size;
   margin-right: -3rem;
 }
 @media screen and (max-width: 767px) {
@@ -2164,7 +2164,7 @@ article[id] > .container > .desc em {
     grid-template-columns: unset;
     grid-template-rows: auto auto;
     grid-auto-flow: column;
-    grid-auto-columns: calc(50% - 0.5rem);
+    grid-auto-columns: calc((89vw - 2 * 1rem) / 2);
     gap: 1rem;
   }
 }
@@ -2174,6 +2174,7 @@ article[id] > .container > .desc em {
     overflow: hidden;
     container-type: inline-size;
     margin-right: 0;
+    width: calc(100% + (50vw - 60rem));
   }
 }
 #curriculum .track {
