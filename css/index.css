@@ -2669,6 +2669,9 @@ article[id] > .container > .desc em {
   background-color: currentColor;
 }
 @media screen and (max-width: 767px) {
+  #contact .button {
+    margin-top: 1rem;
+  }
   #contact .button a {
     width: 80vw;
   }
