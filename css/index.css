@@ -448,7 +448,7 @@ article[id] > .title em,
     font-size: 15rem;
   }
   article[id] > .title em {
-    margin-left: 2.4rem;
+    margin-left: calc((1200 / 225 * 50%) - 50vw + 2.4rem);
     position: -webkit-sticky;
     position: sticky;
     top: 12rem;

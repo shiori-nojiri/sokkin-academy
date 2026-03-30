@@ -52,7 +52,7 @@ body {
 }
 #wrapper {
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 120rem;
 }
 h1,
 h2,
@@ -304,6 +304,7 @@ br.pc {
 /*  footer  */
 #wrapper > footer {
   padding: 1.7rem calc(50vw - 50%);
+  margin: 0 calc(50% - 50vw);
   background-color: rgb(221, 221, 221);
 }
 @media screen and (min-width: 768px) {
