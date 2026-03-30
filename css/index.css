@@ -2159,15 +2159,6 @@ article[id] > .container > .desc em {
   overflow: hidden;
   margin-right: -3rem;
 }
-@media screen and (max-width: 767px) {
-  #curriculum .track {
-    grid-template-columns: unset;
-    grid-template-rows: auto auto;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((89vw - 2 * 1rem) / 2);
-    gap: 1rem;
-  }
-}
 @media screen and (min-width: 768px) {
   #curriculum .carousel {
     padding: 3.2rem 0 0;
@@ -2183,6 +2174,15 @@ article[id] > .container > .desc em {
   gap: 1rem;
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
+}
+@media screen and (max-width: 767px) {
+  #curriculum .track {
+    grid-template-columns: unset;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((89vw - 2 * 1rem) / 2);
+    gap: 1rem;
+  }
 }
 @media screen and (min-width: 768px) {
   #curriculum .track {
