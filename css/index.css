@@ -2613,7 +2613,7 @@ article[id] > .container > .desc em {
   justify-content: center;
 }
 #contact .button a {
-  padding: 0.2em 9rem 0.2em 2rem;
+  padding: 0.5em 5rem 0.5em 0rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2672,7 +2672,7 @@ article[id] > .container > .desc em {
     width: 80vw;
   }
   #contact .button a::before {
-    right: 7rem;
+    right: 5rem;
   }
 }
 @media screen and (min-width: 768px) {
