@@ -113,10 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
   const openObserver = new IntersectionObserver(handleOpen, { rootMargin: "0px 0px -50% 0px", threshold: 0 });
-  const mocks = document.querySelectorAll("article[id] > .title em, #point .image.fadein");
+  const mocks = document.querySelectorAll("#point .image.fadein");
   mocks.forEach((mock) => {
     openObserver.observe(mock);
   });
+
+  /* title em color: handled by sticky-title.js */
 
   /* section counter */
   const counter = document.querySelector("#point > .title span");
